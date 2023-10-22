@@ -1,19 +1,26 @@
 <script lang="ts" setup>
 useHead({
-  title: 'Alexis Lopes'
+  title: 'Alexis Lopes',
+  link: [{ rel: 'icon', type: 'image/png', href: 'https://avatars.githubusercontent.com/u/20803498?v=4' }]
 })
 
 const { data } = await useAsyncData('user', () => $fetch('https://api.github.com/users/alexislopes'))
 </script>
 
 <template>
-<div
+  <div
   class="light:bg-ice dark:bg-abyss flex items-center justify-center min-h-screen dark:text-ice light:text-abyss flex-col">
+  <nav>
+    <NuxtLink to="/threads">
+      Threads
+    </NuxtLink>
+  </nav>
 
   <div class="max-w-xl flex gap-8 flex-col">
+    <img :src="data.avatar_url" alt="" srcset="" class="rounded-full w-32" >
 
     <div class="flex justify-center flex-col w-full items-center">
-      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="h-64" width="100%" id="blobSvg"
+      <!--<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" class="h-64" width="100%" id="blobSvg"
         filter="blur(0px)" style="opacity: 1;" transform="rotate(0)">
         <image x="0" y="0" width="100%" height="100%" clip-path="url(#shape)"
           :href="data.avatar_url" preserveAspectRatio="none"></image>
@@ -30,15 +37,15 @@ const { data } = await useAsyncData('user', () => $fetch('https://api.github.com
             </animate>
           </path>
         </clipPath>
-      </svg>
+      </svg> -->
 
-      <h1 class="text-2xl">Alexis Lopes</h1>
+      <h1 class="text-2xl w-full">Alexis Lopes</h1>
     </div>
 
     <div class="flex justify-start flex-col gap-5">
 
-      <p>Olá, sou Alexis.Desenvolvedor e entusiasta Vue.js, Nuxt.</p>
-      <p>Atualmente, atuo como desenvolvedor no time de inovação da Treevia Forest Tech.</p>
+      <p>Olá, sou Alexis. Desenvolvedor e entusiasta Vue.js, Nuxt.</p>
+      <p>Atualmente, atuo como desenvolvedor no time de inovação da Treevia Forest Tech.🌳</p>
       <p>Me encontrei na programação, onde consigo me expressar e transformar minhas ambições em código.</p>
       <h2>Me encontre em:</h2>
       <div class="flex gap-2">
@@ -50,6 +57,9 @@ const { data } = await useAsyncData('user', () => $fetch('https://api.github.com
         </NuxtLink>
         <NuxtLink to="https://www.instagram.com/alexislopes/" target="_blank">
           <Icon name="mdi:instagram" class="h-8 w-8" />
+        </NuxtLink>
+        <NuxtLink to="https://www.twitter.com/alexislxpes/" target="_blank">
+          <Icon name="tabler:brand-x" class="h-8 w-8" />
         </NuxtLink>
       </div>
     </div>
