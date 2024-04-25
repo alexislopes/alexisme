@@ -5,6 +5,14 @@ export default defineNuxtConfig({
   },
   devtools: { enabled: true },
   modules: [
-    '@nuxtjs/tailwindcss', 'nuxt-icon'
+    '@vueuse/nuxt',
+    '@nuxtjs/tailwindcss',
+    'nuxt-icon',
+    'unplugin-icons/nuxt',
+    ['@nuxtjs/google-fonts', {
+      families: {
+        'Roboto': true
+      }
+    }]
   ]
 })
