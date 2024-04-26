@@ -4,12 +4,13 @@ import BiGithub from '~icons/bi/github';
 import BiInstagram from '~icons/bi/instagram';
 import BiLinkedin from '~icons/bi/linkedin';
 import OiDoubleQuoteSansLeft from '~icons/oi/double-quote-sans-left';
+
 useHead({
-  title: 'Alexis Lopes',
+  title: "Alexis Lopes | Sobre",
   link: [{ rel: 'icon', type: 'image/png', href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐵</text></svg>" }]
 })
 
-const { data } = await useAsyncData('user', () => $fetch('https://api.github.com/users/alexislopes'))
+const { data } = useLazyAsyncData('user', () => $fetch('https://api.github.com/users/alexislopes'))
 
 const greetings = ['Olá', 'Hello', 'Hi', 'Yo!', 'Hey', 'Hola', 'こんにちは', 'Bonjour', 'Salut!', '你好', 'Привет']
 const word = ref('Olá')

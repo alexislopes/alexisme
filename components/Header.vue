@@ -9,7 +9,7 @@ const { currentRoute } = useRouter()
   <!-- <logo /> -->
   <div class="flex gap-1">
     <NuxtLink class="link" to="/" :class="{ active: currentRoute.path === '/' }">Sobre</NuxtLink>
-    <NuxtLink class="link opacity-40 cursor-not-allowed relative"
+    <NuxtLink class="link relative" to="/projetos"
       :class="{ active: currentRoute.path === '/projetos' }">
       Projetos
     </NuxtLink>

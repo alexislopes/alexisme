@@ -10,7 +10,8 @@ export default {
         vue: "#42B883",
         clay: "#9B3922",
         orange: "#F2613F",
-        surface: "#FEECE9"
+        surface: "#FEECE9",
+        gray: "#857671"
       },
       fontFamily: {
         code: ['Fira Code']
