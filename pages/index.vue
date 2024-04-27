@@ -57,8 +57,9 @@ const expTime = computed(() => {
     </div>
   </div>
   <div>
-    <img :src="data.avatar_url"
+    <img v-if="data" :src="data?.avatar_url"
       class="rounded-full h-72 w-72 shadow-[0_0px_167px_5px_var(--tw-shadow-color)] shadow-orange" alt="">
+      <div v-else class="h-72 w-72 bg-surface animate-pulse rounded-full shadow-[0_0px_167px_5px_var(--tw-shadow-color)] shadow-orange"></div>
   </div>
 </div>
 </template>
