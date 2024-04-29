@@ -5,6 +5,15 @@ import BiInstagram from '~icons/bi/instagram';
 import BiLinkedin from '~icons/bi/linkedin';
 import OiDoubleQuoteSansLeft from '~icons/oi/double-quote-sans-left';
 
+useSeoMeta({
+  title: 'Alexis Lopes | Fronm-End Developer',
+  ogTitle: 'Alexis Lopes | Fronm-End Developer',
+  description: 'Bem-vindos ao meu portifólio',
+  ogDescription: 'Bem-vindos ao meu portifólio',
+  ogImage: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐵</text></svg>",
+  twitterCard: 'summary_large_image',
+})
+
 useHead({
   title: "Alexis Lopes | Sobre",
   link: [{ rel: 'icon', type: 'image/png', href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐵</text></svg>" }]
