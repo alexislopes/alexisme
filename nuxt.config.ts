@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   app: {
     baseURL: "/alexisme/"
   },
-  ssr: true,
+  // ssr: true,
   devtools: { enabled: true },
   modules: [
     '@vueuse/nuxt',
