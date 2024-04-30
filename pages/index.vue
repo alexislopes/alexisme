@@ -35,17 +35,17 @@ const expTime = computed(() => {
 </script>
 
 <template>
-<div class="h-[calc(100vh_-_80px)] w-full flex items-center justify-center gap-20">
-  <div>
-    <h1 class="text-4xl font-medium">{{ word }}! Sou Alexis, atuo como:</h1>
-    <h2 class="typewriter font-bold text-6xl text-orange">Front-end Developer</h2>
+<div class="h-screen w-screen lg:h-[calc(100vh_-_80px)] lg:w-full flex flex-col-reverse lg:flex-row items-center justify-center gap-20">
+  <div class="p-6 lg:p-0">
+    <h1 class="lg:text-4xl text-2xl font-medium">{{ word }}! Sou Alexis, atuo como:</h1>
+    <h2 class="typewriter font-bold lg:text-6xl text-4xl text-orange">Front-end Developer</h2>
 
-    <p class="!text-base font-medium mt-4 max-w-[650px]">Tenho {{ expTime }} anos de experiencia na área de
+    <p class="!text-base font-medium mt-4 max-w-2xl">Tenho {{ expTime }} anos de experiencia na área de
       desenvolvimento de produtos digitais. Já atuei em diversas funções como as de sustentaçao, agregando valores ao
       produto de forma ágil, conforme as demandas e na área de inovação, liderando a criação de novos produtos do zero,
       propondo padrões e estruturas.</p>
 
-    <blockquote class="max-w-[650px] font-code p-4 rounded-md mt-4 bg-surface !text-sm relative">
+    <blockquote class="max-w-2xl font-code p-4 rounded-md mt-4 bg-surface !text-sm relative">
       <OiDoubleQuoteSansLeft class="absolute -mt-6 -ml-5 text-xl text-abyss" />
       Sempre gostei de ver as coisas ganhando forma, se transformando. Conseguir transformar código em produtos que
       agregam valor e resolvem problemas é muito gratificante para mim.
@@ -84,24 +84,30 @@ p {
   @apply text-xl
 }
 
+
 h2 {
-  overflow: hidden;
-  /* Ensures the content is not revealed until the animation */
+  @apply overflow-hidden border-r-4 whitespace-nowrap m-0 tracking-normal pr-2 h-12 lg:h-16 w-fit text-start
+}
+
+h2 {
+  /* overflow: hidden;
+   Ensures the content is not revealed until the animation 
   border-right: .15em solid orange;
-  /* The typwriter cursor */
+   The typwriter cursor 
   white-space: nowrap;
-  /* Keeps the content on a single line */
+  Keeps the content on a single line 
   margin: 0;
-  /* Gives that scrolling effect as the typing happens */
-  letter-spacing: 0em;
+   Gives that scrolling effect as the typing happens 
+  letter-spacing: 0em; */
   /* Adjust as needed */
+
   animation:
     typing 3.5s steps(40, end),
     blink-caret .75s step-end infinite;
-  padding-right: 0.5rem;
-  height: 70px;
+  /* padding-right: 0.5rem;
+  height: 50px;
   width: fit-content;
-  text-align: start;
+  text-align: start; */
 
 }
 
