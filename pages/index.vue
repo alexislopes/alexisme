@@ -35,7 +35,7 @@ const expTime = computed(() => {
 </script>
 
 <template>
-<div class="h-screen w-screen lg:h-[calc(100vh_-_80px)] lg:w-full flex flex-col-reverse lg:flex-row items-center justify-center gap-20">
+<div class="h-screen w-screen lg:h-[calc(100vh_-_80px)] lg:w-full flex flex-col-reverse lg:flex-row items-center justify-center gap-8 lg:gap-20">
   <div class="p-6 lg:p-0">
     <h1 class="lg:text-4xl text-2xl font-medium">{{ word }}! Sou Alexis, atuo como:</h1>
     <h2 class="typewriter font-bold lg:text-6xl text-4xl text-orange">Front-end Developer</h2>
@@ -67,8 +67,8 @@ const expTime = computed(() => {
   </div>
   <div>
     <img v-if="data" :src="data?.avatar_url"
-      class="rounded-full h-72 w-72 shadow-[0_0px_167px_5px_var(--tw-shadow-color)] shadow-orange" alt="">
-      <div v-else class="h-72 w-72 bg-surface animate-pulse rounded-full shadow-[0_0px_167px_5px_var(--tw-shadow-color)] shadow-orange"></div>
+      class="rounded-full lg:h-72 lg:w-72 h-52 7-52 shadow-[0_0px_167px_5px_var(--tw-shadow-color)] shadow-orange" alt="">
+      <div v-else class="lg:h-72 lg:w-72 h-52 7-52 bg-surface animate-pulse rounded-full shadow-[0_0px_167px_5px_var(--tw-shadow-color)] shadow-orange"></div>
   </div>
 </div>
 </template>

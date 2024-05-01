@@ -13,12 +13,12 @@ const projetos = computed(() => {
 </script>
 
 <template>
-  <div class="px-20 pb-5">
+  <div class="lg:px-20 lg:pb-5 p-10 lg:p-0">
     <div class="mb-6">
       <h1 class="text-abyss text-4xl font-bold">Projetos</h1>
       <p class="text-abyss mt-1">Projetos que criei ou estou mantendo</p>
     </div>
-    <div class="flex flex-wrap gap-6" v-if="projetos.length">
+    <div class="flex flex-wrap gap-6 items-center justify-center" v-if="projetos.length">
       <ProjectCard 
       v-for="projeto in projetos" 
       :nome="projeto.name" 
