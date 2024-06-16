@@ -2,7 +2,7 @@
 
 <template>
 <div class="w-full h-screen">
-  <Header />
+  <!-- <Header /> -->
   <slot />
 </div>
 </template>

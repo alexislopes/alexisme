@@ -1,6 +1,6 @@
 {
   "name": "nuxt-app",
-  "homepage": "https://alexislopes.github.io/alexisme/",
+  "homepage": "https://alexislopes.com.br",
   "private": true,
   "scripts": {
     "build": "nuxt build",
