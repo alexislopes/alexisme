@@ -13,12 +13,11 @@ const projetos = computed(() => {
 </script>
 
 <template>
-  <div class="lg:px-20 lg:pb-5 p-10 lg:p-0">
     <div class="mb-6">
       <h1 class="text-abyss text-4xl font-bold">Projetos</h1>
       <p class="text-abyss mt-1">Projetos que criei ou estou mantendo</p>
     </div>
-    <div class="flex flex-wrap gap-6 items-center justify-center" v-if="projetos.length">
+    <div class="grid grid-cols-2 gap-4" v-if="projetos.length">
       <ProjectCard 
       v-for="projeto in projetos" 
       :nome="projeto.name" 
@@ -32,7 +31,6 @@ const projetos = computed(() => {
     <div class="flex flex-wrap gap-6" v-else>
       <div class="w-[350px] h-[400px] rounded-2xl shadow-xl bg-surface animate-pulse"></div>
     </div>
-  </div>
 </template>
 
 <style scoped></style>
