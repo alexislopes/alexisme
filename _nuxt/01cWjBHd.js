@@ -1,1 +1,0 @@
-import{_ as s,c as t,a4 as c,o}from"./DsRO14ST.js";const r={},a={class:"w-full h-screen"};function n(e,l){return o(),t("div",a,[c(e.$slots,"default")])}const f=s(r,[["render",n]]);export{f as default};
