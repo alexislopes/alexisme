@@ -8,10 +8,11 @@ export default defineNuxtConfig({
   modules: [
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
-    'nuxt-icon',
+    '@nuxt/icon',
     'unplugin-icons/nuxt',
     "@nuxt/fonts",
-    "@nuxt/image"
+    "@nuxt/image",
+    "nuxt-gtag"
   ],
 
   runtimeConfig: {
