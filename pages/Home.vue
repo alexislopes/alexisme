@@ -5,59 +5,21 @@ useHead({
   link: [{ rel: 'icon', type: 'image/png', href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐵</text></svg>" }]
 })
 
-// const config = useRuntimeConfig();
-// const { currentRoute } = useRouter()
-
-// const { $spotify } = useNuxtApp()
-
-// const token = useLocalStorage('token', '')
-
-// const formData = computed(() => {
-
-//   const url = new URLSearchParams()
-
-//   url.append('grant_type', 'authorization_code')
-//   url.append('redirect_uri', config.public.spotifyCallbackUri)
-//   url.append('code', currentRoute.value.query.code)
-
-
-//   return url.toString()
-// })
+definePageMeta({
+  middleware: 'auth'
+})
 
 
 
+const { $spotify } = useNuxtApp()
 
-// const { data, status, error } = await $spotify.spotifyAccount.token(formData.value, { lazy: true })
+const { data: player, error, refresh, status, execute } = await $spotify.spotifyPlayer.getPlaybackState({ lazy: true })
 
-
-// watch(status, (value) => {
-//   if (value === 'success') {
-//     localStorage.setItem('token', data.value.access_token)
-//     localStorage.setItem('refresh', data.value.refresh_token)
-
-//     setTimeout(() => {
-//       localStorage.removeItem('token')
-//     }, 3600 * 1000)
-//   }
-//   console.log(error)
-// })
-
-// const { data: player, error, execute } = await $spotify.spotifyPlayer.getPlaybackState({ lazy: true })
-
-// watch(error, async (value) => {
-//   if (value?.data.error.status === 401) {
-//     const { data, status, error } = await $spotify.spotifyAccount.token(new URLSearchParams({
-//       grant_type: 'refresh_token',
-//       refresh_token: localStorage.getItem('refresh'),
-//       client_id: config.public.spotifyClientId
-//     }), { lazy: true })
-
-//     console.log('daaaata: ', data.value)
-//     token.value = data.value.access_token
-//     // localStorage.setItem('token', data.value.access_token)
-//     execute()
-//   }
-// })
+watch(status, (value) => {
+  if (value === 'error') {
+    navigateTo('/')
+  }
+})
 
 function navigate() {
   navigateTo('https://treevia.com.br/inventario-florestal/', {
@@ -102,26 +64,27 @@ const projetos = computed(() => {
         v-for="projeto in projetos">
         <Backdrop />
         <p class="absolute bottom-0 text-[#fefefe] px-2 py-1">{{ projeto.name }}</p>
-        <img class="rounded-lg"
+        <img class="rounded-lg h-[190px] w-[330px]"
           :src="`https://raw.githubusercontent.com/alexislopes/${projeto.name}/master/docs/portifolio/thumb.png`"
           alt="">
       </NuxtLink>
     </div>
   </div>
+  <TrackLegacy v-if="player" :player="player" @refresh="refresh"/>
 
 
 
-  <div class="flex flex-col gap-2">
+  <!-- <div class="flex flex-col gap-2">
 
     <h1 class="text-2xl font-bold">Foco autal</h1>
 
     <div class="relative cursor-pointer" @click="navigate">
       <Backdrop />
-      <img class="rounded-lg" src="@/public/banner.png" alt="">
+      <NuxtImg class="rounded-lg" src="@/public/banner.png" alt="" />
       <p class="bottom-0 absolute hover:underline text-[#FEFEFE] p-2 !text-3xl">Conectando florestas com
         SmartForest</p>
     </div>
-  </div>
+  </div> -->
 
 
 </div>

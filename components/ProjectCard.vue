@@ -18,7 +18,7 @@ defineProps<Props>()
 <template>
 <div class="w-[350px] rounded-2xl shadow-xl">
   <div>
-    <img :src="thumb" alt="" class="h-[200px] rounded-t-2xl w-full">
+    <NuxtImg :src="thumb" alt="" class="h-[200px] rounded-t-2xl w-full" />
   </div>
   <div class="px-6 py-4 rounded-b-2xl flex flex-col gap-2">
     <div>

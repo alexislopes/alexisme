@@ -2,6 +2,16 @@
 import type { AsyncDataOptions } from '#app';
 import type { FetchOptions } from 'ofetch';
 
+function getHashParams() {
+  var hashParams = {};
+  var e, r = /([^&;=]+)=?([^&;]*)/g,
+    q = window.location.hash.substring(1);
+  while (e = r.exec(q)) {
+    hashParams[e[1]] = decodeURIComponent(e[2]);
+  }
+  return hashParams;
+}
+
 // locals
 import FetchFactory from '../factory';
 
@@ -25,13 +35,11 @@ class SpotifyPlayerModule extends FetchFactory<IResponse[]> {
     asyncDataOptions?: AsyncDataOptions<IResponse[]>
   ) {
 
-    const authorization = useLocalStorage('token', '')
-
     return useAsyncData(
       () => {
         const fetchOptions: FetchOptions<'json'> = {
           headers: {
-            'Authorization': `Bearer ${authorization.value}`
+            'Authorization': `Bearer ${getHashParams().access_token}`
           }
         };
         return this.call(

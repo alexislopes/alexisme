@@ -2,14 +2,18 @@
 export default defineNuxtConfig({
   // ssr: true,
   devtools: { enabled: true },
+
   ssr: false,
+
   modules: [
     '@vueuse/nuxt',
     '@nuxtjs/tailwindcss',
     'nuxt-icon',
     'unplugin-icons/nuxt',
-    "@nuxt/fonts"
+    "@nuxt/fonts",
+    "@nuxt/image"
   ],
+
   runtimeConfig: {
     public: {
       spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
@@ -21,4 +25,6 @@ export default defineNuxtConfig({
       spotifyAuthorizationCode: process.env.SPOTIFY_AUTHORIZATION_CODE
     }
   },
+
+  compatibilityDate: '2024-07-22',
 })
