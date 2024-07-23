@@ -15,11 +15,19 @@ const { $spotify } = useNuxtApp()
 
 const { data: player, error, refresh, status, execute } = await $spotify.spotifyPlayer.getPlaybackState({ lazy: true })
 
+
 watch(status, (value) => {
   if (value === 'error') {
     navigateTo('/')
   }
 })
+
+function resetAndRefresh() {
+  if (player.value) {
+    player.value.progress_ms = 0
+  }
+  refresh()
+}
 
 function navigate() {
   navigateTo('https://treevia.com.br/inventario-florestal/', {
@@ -36,6 +44,7 @@ const projetos = computed(() => {
 })
 
 
+
 </script>
 
 <template>
@@ -50,27 +59,32 @@ const projetos = computed(() => {
 
 
   <div class="flex flex-col gap-2">
-
-    <div class="flex items-center justify-between">
-
-      <h1 class="text-2xl font-bold">Projetos</h1>
-      <NuxtLink to="/projetos">ver todos</NuxtLink>
+    <div>
+      <h1 class="text-2xl font-bold mb-2">Agora</h1>
+      <Track v-if="player" :player="player" @refresh="resetAndRefresh" />
     </div>
 
-    <div class="grid lg:grid-rows-none grid-rows-3 lg:grid-cols-3 gap-4">
-      <div v-if="!projetos.length" v-for="index in 3" :key="index"
-        class="h-[190px] w-[330px] bg-slate-200 animate-pulse rounded-lg"></div>
-      <NuxtLink v-else :to="projeto.html_url" :key="projeto.name" external target="_blank" class="relative"
-        v-for="projeto in projetos">
-        <Backdrop />
-        <p class="absolute bottom-0 text-[#fefefe] px-2 py-1">{{ projeto.name }}</p>
-        <img class="rounded-lg h-[190px] w-[330px]"
-          :src="`https://raw.githubusercontent.com/alexislopes/${projeto.name}/master/docs/portifolio/thumb.png`"
-          alt="">
-      </NuxtLink>
+    <div>
+
+      <div class="flex items-center justify-between">
+        <h1 class="text-2xl font-bold mb-2">Projetos</h1>
+        <NuxtLink to="/projetos">ver todos</NuxtLink>
+      </div>
+
+      <div class="grid lg:grid-rows-none grid-rows-3 lg:grid-cols-3 gap-4">
+        <div v-if="!projetos.length" v-for="index in 3" :key="index"
+          class="h-[190px] w-[330px] bg-slate-200 animate-pulse rounded-lg"></div>
+        <NuxtLink v-else :to="projeto.html_url" :key="projeto.name" external target="_blank" class="relative"
+          v-for="projeto in projetos">
+          <Backdrop />
+          <p class="absolute bottom-0 text-[#fefefe] px-2 py-1">{{ projeto.name }}</p>
+          <img class="rounded-lg h-[190px] w-[330px]"
+            :src="`https://raw.githubusercontent.com/alexislopes/${projeto.name}/master/docs/portifolio/thumb.png`"
+            alt="">
+        </NuxtLink>
+      </div>
     </div>
   </div>
-  <TrackLegacy v-if="player" :player="player" @refresh="refresh"/>
 
 
 
