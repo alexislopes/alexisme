@@ -8,7 +8,7 @@
   <div class="w-full h-20 z-10  justify-center items-center rounded-b-lg flex flex-col bg-white">
     
     <div class="-mt-28 flex flex-col items-center w-full">
-      <!-- <FaSpotify class="absolute bottom-2 right-2 text-black " /> -->
+      <Icon name="fa:spotify" class="absolute bottom-2 right-2 text-black " />
       <p class="font-bold text-xl max-w-72 text-center">{{ player?.item.name }} </p>
       <span class="font-medium text-sm">{{ player?.item.artists.map(({ name }) => name).toString() }}</span>
       
@@ -19,7 +19,6 @@
 </template>
 
 <script lang="ts" setup>
-// import FaSpotify from '~icons/fa/spotify';
 const props = defineProps({ player: Object })
 const emit = defineEmits(['refresh'])
 

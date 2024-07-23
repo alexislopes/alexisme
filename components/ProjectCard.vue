@@ -1,6 +1,4 @@
 <script lang="ts" setup>
-import BiGithub from '~icons/bi/github';
-import GridiconsExternal from '~icons/gridicons/external';
 
 interface Props {
   nome: string
@@ -30,10 +28,10 @@ defineProps<Props>()
     </div>
     <div class="flex gap-2">
       <NuxtLink :to="github" target="_blank">
-        <BiGithub class="text-xl" />
+        <Icon name="bi:github" class="text-xl" />
       </NuxtLink>
       <NuxtLink :to="homepage" target="_blank">
-        <GridiconsExternal class="text-xl" />
+        <Icon name="gridicons:external" class="text-xl" />
       </NuxtLink>
     </div>
   </div>
