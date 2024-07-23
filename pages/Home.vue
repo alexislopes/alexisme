@@ -85,22 +85,6 @@ const projetos = computed(() => {
       </div>
     </div>
   </div>
-
-
-
-  <!-- <div class="flex flex-col gap-2">
-
-    <h1 class="text-2xl font-bold">Foco autal</h1>
-
-    <div class="relative cursor-pointer" @click="navigate">
-      <Backdrop />
-      <NuxtImg class="rounded-lg" src="@/public/banner.png" alt="" />
-      <p class="bottom-0 absolute hover:underline text-[#FEFEFE] p-2 !text-3xl">Conectando florestas com
-        SmartForest</p>
-    </div>
-  </div> -->
-
-
 </div>
 </template>
 
