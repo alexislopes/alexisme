@@ -10,7 +10,7 @@ const config = useRuntimeConfig()
 
 onMounted(() => {
   // navigateTo('/home')
-  navigateTo(`https://accounts.spotify.com/authorize?response_type=token&client_id=${config.public.spotifyClientId}&scope=${config.public.spotifyApiScope}&redirect_uri=http://${config.public.spotifyCallbackUri}/home&state=${config.public.spotifyApiState}`, { external: true })
+  navigateTo(`https://accounts.spotify.com/authorize?response_type=token&client_id=${config.public.spotifyClientId}&scope=${config.public.spotifyApiScope}&redirect_uri=${config.public.spotifyCallbackUri}/home&state=${config.public.spotifyApiState}`, { external: true })
 })
 </script>
 
