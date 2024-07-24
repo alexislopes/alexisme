@@ -1,0 +1,1 @@
+import{C as n,A as s}from"./DLQ_WRcw.js";const d=n((i,u)=>{function t(){for(var a={},e,o=/([^&;=]+)=?([^&;]*)/g,r=window.location.hash.substring(1);e=o.exec(r);)a[e[1]]=decodeURIComponent(e[2]);return a}if(!t().access_token)return s("/")});export{d as default};
