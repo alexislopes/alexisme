@@ -72,9 +72,6 @@ jobs:
       #       ${{ runner.os }}-nuxt-build-
       
       - name: Static HTML export with Nuxt
-        run: |
-          echo "repository variable : $SPOTIFY_CALLBACK_URI"
-          echo "repository variable : $SPOTIFY_API_SCOPE"
         env:
           SPOTIFY_CLIENT_ID: ${{ vars.SPOTIFY_CLIENT_ID }}
           SPOTIFY_API_SCOPE: ${{ vars.SPOTIFY_API_SCOPE }}
