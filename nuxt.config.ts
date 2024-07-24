@@ -10,7 +10,6 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     'unplugin-icons/nuxt',
     "@nuxt/fonts",
-    "@nuxt/image",
     "nuxt-gtag"
   ],
 
@@ -27,10 +26,15 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    esbuild: {
+      options: {
+        target: 'esnext'
+      }
+    },
     prerender: {
       failOnError: false
     }
-  }
+  },
 
   compatibilityDate: '2024-07-22',
 })
