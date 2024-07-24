@@ -78,12 +78,12 @@ jobs:
         env:
           SPOTIFY_CLIENT_ID: ${{ vars.SPOTIFY_CLIENT_ID }}
           SPOTIFY_API_SCOPE: ${{ vars.SPOTIFY_API_SCOPE }}
-          SPOTIFY_API_STATE: ${{ vars.SPOTIFY_API_STATE }
-          SPOTIFY_ACCOUNT_BASE_URL: ${{ vars.SPOTIFY_ACCOUNT_BASE_URL }
-          SPOTIFY_API_BASE_URL: ${{ vars.SPOTIFY_API_BASE_URL }
-          SPOTIFY_CALLBACK_URI: ${{ vars.SPOTIFY_CALLBACK_URI }
-          SPOTIFY_AUTHORIZATION_CODE: ${{ vars.SPOTIFY_AUTHORIZATION_CODE }
-          NUXT_PUBLIC_GTAG_ID: ${{ vars.NUXT_PUBLIC_GTAG_ID }
+          SPOTIFY_API_STATE: ${{ vars.SPOTIFY_API_STATE }}
+          SPOTIFY_ACCOUNT_BASE_URL: ${{ vars.SPOTIFY_ACCOUNT_BASE_URL }}
+          SPOTIFY_API_BASE_URL: ${{ vars.SPOTIFY_API_BASE_URL }}
+          SPOTIFY_CALLBACK_URI: ${{ vars.SPOTIFY_CALLBACK_URI }}
+          SPOTIFY_AUTHORIZATION_CODE: ${{ vars.SPOTIFY_AUTHORIZATION_CODE }}
+          NUXT_PUBLIC_GTAG_ID: ${{ vars.NUXT_PUBLIC_GTAG_ID }}
         run: ${{ steps.detect-package-manager.outputs.manager }} run generate
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
