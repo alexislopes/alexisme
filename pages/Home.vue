@@ -5,29 +5,29 @@ useHead({
   link: [{ rel: 'icon', type: 'image/png', href: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐵</text></svg>" }]
 })
 
-definePageMeta({
-  middleware: 'auth'
-})
+// definePageMeta({
+//   middleware: 'auth'
+// })
 
 
 
-const { $spotify } = useNuxtApp()
+// const { $spotify } = useNuxtApp()
 
-const { data: player, error, refresh, status, execute } = await $spotify.spotifyPlayer.getPlaybackState({ lazy: true })
+// const { data: player, error, refresh, status, execute } = await $spotify.spotifyPlayer.getPlaybackState({ lazy: true })
 
 
-watch(status, (value) => {
-  if (value === 'error') {
-    navigateTo('/')
-  }
-})
+// watch(status, (value) => {
+//   if (value === 'error') {
+//     navigateTo('/')
+//   }
+// })
 
-function resetAndRefresh() {
-  if (player.value) {
-    player.value.progress_ms = 0
-  }
-  refresh()
-}
+// function resetAndRefresh() {
+//   if (player.value) {
+//     player.value.progress_ms = 0
+//   }
+//   refresh()
+// }
 
 function navigate() {
   navigateTo('https://treevia.com.br/inventario-florestal/', {
@@ -59,10 +59,10 @@ const projetos = computed(() => {
 
 
   <div class="flex flex-col gap-2">
-    <div>
+    <!-- <div>
       <h1 class="text-2xl font-bold mb-2">Agora</h1>
       <Track v-if="player" :player="player" @refresh="resetAndRefresh" />
-    </div>
+    </div> -->
 
     <div>
 
