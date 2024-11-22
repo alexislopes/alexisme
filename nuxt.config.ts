@@ -1,18 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-
   ssr: false,
 
   modules: [
-    '@vueuse/nuxt',
-    '@nuxtjs/tailwindcss',
     '@nuxt/icon',
     'unplugin-icons/nuxt',
     "@nuxt/fonts",
-    "nuxt-gtag"
+    "nuxt-gtag",
+    '@vueuse/motion/nuxt'
   ],
 
+  css: ['~/assets/css/main.css'],
   runtimeConfig: {
     public: {
       spotifyClientId: process.env.SPOTIFY_CLIENT_ID,
@@ -34,6 +33,13 @@ export default defineNuxtConfig({
     prerender: {
       failOnError: false
     }
+  },
+
+  postcss: {
+    plugins: {
+      tailwindcss: {},
+      autoprefixer: {},
+    },
   },
 
   compatibilityDate: '2024-07-22',

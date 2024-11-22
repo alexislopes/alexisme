@@ -1,21 +1,64 @@
+import { setupInspiraUI } from "@inspira-ui/plugins";
+import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
+
 export default {
+  darkMode: "selector",
+  safelist: ["dark"],
+  prefix: "",
+  content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./app.vue",
+    "./error.vue",
+  ],
   theme: {
     extend: {
       colors: {
-        ice: '#FEFBF6',
-        water: '#41ead4',
-        sunbeam: '#fbff12',
-        bubblegum: "#ff206e",
-        abyss: "#0C0C0C",
-        vue: "#42B883",
-        clay: "#9B3922",
-        orange: "#F2613F",
-        surface: "#FEECE9",
-        gray: "#857671"
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
       },
-      fontFamily: {
-        code: ['Fira Code']
-      }
-    }
-  }
-}
+      borderRadius: {
+        xl: "calc(var(--radius) + 4px)",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+    },
+  },
+
+  plugins: [animate, setupInspiraUI],
+} satisfies Config;
