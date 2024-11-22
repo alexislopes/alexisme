@@ -1,7 +1,8 @@
 <script lang="ts" setup>
 
 definePageMeta({
-  layout: false
+  layout: false,
+  name: 'Home'
 })
 
 useHead({
