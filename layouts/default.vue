@@ -2,7 +2,7 @@
 
 <template>
   <Nav></Nav>
-  <div class="mx-auto max-w-3xl my-20">
+  <div class="mx-auto max-w-7xl my-20">
     <slot />
   </div>
 </template>

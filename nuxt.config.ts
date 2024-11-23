@@ -8,7 +8,8 @@ export default defineNuxtConfig({
     'unplugin-icons/nuxt',
     "@nuxt/fonts",
     "nuxt-gtag",
-    '@vueuse/motion/nuxt'
+    '@vueuse/motion/nuxt',
+    '@nuxt/image',
   ],
 
   css: ['~/assets/css/main.css'],

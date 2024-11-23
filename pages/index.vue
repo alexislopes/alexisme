@@ -15,7 +15,7 @@ useHead({
 </script>
 
 <template>
-  <div class="mx-auto max-w-lg my-20 flex flex-col gap-4">
+  <div class="mx-auto max-w-sm px-4 my-20 flex flex-col gap-4">
 
     <ClientOnly>
       <BlurReveal :delay="0.2" :duration="0.75" class="flex flex-col gap-2">
