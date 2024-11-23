@@ -14,12 +14,12 @@ const projetos = computed(() => {
 
 <template>
 
-  <div class="mb-6">
+  <div class="mb-6 p-4">
     <h1 class="text-abyss text-4xl font-bold">Projetos</h1>
     <p class="text-abyss mt-1">Navegue pelos projetos que criei</p>
   </div>
 
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 p-4">
     <ClientOnly>
       <CardContainer v-for="projeto in projetos" :nome="projeto.name" class="h-full">
         <CardBody
