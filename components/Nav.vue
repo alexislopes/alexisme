@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full py-4 fixed top-0 z-10 bg-[#fefefe]">
+  <nav class="w-full py-4 fixed top-0 z-10" :class="{ 'bg-[#fefefe]': !opened }">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-4">
       <span class="flex items-center gap-1" @click="router.back()">
         <Icon name="tdesign:gesture-left-filled" />
@@ -15,7 +15,7 @@
       </div>
     </div>
   </nav>
-  <div v-show="opened && isMobile" class="absolute bg-black/60 top-0 bottom-0 left-0 right-0 z-[9]"></div>
+  <div v-show="opened && isMobile" class="fixed bg-black/60 top-0 bottom-0 left-0 right-0 z-[9]"></div>
 </template>
 
 <script lang="ts" setup>
