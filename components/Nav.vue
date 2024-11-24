@@ -6,9 +6,9 @@
         Voltar
       </span>
       <Icon v-show="!opened" @click="opened = true" name="solar:hamburger-menu-bold" class="lg:hidden text-xl" />
-      <div v-show="opened || !isMobile"
-        class="flex gap-4 absolute top-0 bottom-0 left-0 w-2/3 flex-col h-screen p-4 bg-[#fefefe] z-20 lg:bg-transparent lg:relative lg:w-auto lg:h-auto lg:flex-row lg:p-0">
-        <div class="flex justify-end px-4 lg:hidden">
+      <div :class="!opened ? '-left-2/3' : 'left-0 rounded-r-md'"
+        class="peer-focus:left-0 ease-out delay-150 duration-300 flex gap-4 absolute top-0 bottom-0 w-2/3 flex-col h-screen p-4 bg-[#fefefe] z-20 lg:bg-transparent lg:relative lg:w-auto lg:h-auto lg:flex-row lg:p-0">
+        <div class="flex justify-end lg:hidden">
           <Icon @click="opened = false" name="ic:round-close" />
         </div>
         <NuxtLink v-for="router in router.getRoutes()" :key="router.name" :to="router.path">{{ router.name }}</NuxtLink>
