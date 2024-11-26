@@ -1,8 +1,8 @@
 <template>
   <nav>
     <transition-group appear name="list" tag="ul">
-      <li v-for="route in router.getRoutes().filter(f => f.name != 'Home')" :key="route.name">
-        <!-- <li v-for="route in list" :key="route.name"> -->
+      <!-- <li v-for="route in router.getRoutes().filter(f => f.name != 'Home')" :key="route.name"> -->
+      <li v-for="route in list" :key="route.name">
         <NuxtLink :to="route.path">
           <MenuItem>{{ route.name }}</MenuItem>
         </NuxtLink>
