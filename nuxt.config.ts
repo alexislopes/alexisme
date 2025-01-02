@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     "nuxt-gtag",
     '@vueuse/motion/nuxt',
     '@nuxt/image',
+    "@nuxthub/core"
   ],
 
   css: ['~/assets/css/main.css'],
