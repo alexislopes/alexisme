@@ -27,6 +27,11 @@ useHead({
     </ClientOnly>
 
     <Menu></Menu>
+
+    <h1 class="uppercase text-xl text-slate-500">Foco atual</h1>
+    <a href="https://minhatabela.com" target="_blank"
+      class="bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent text-2xl font-black">minhatabela</a>
+    <LinkPreview :width="350" :height="400" url="https://minhatabela.com/simular" />
   </div>
 </template>
 
