@@ -41,8 +41,6 @@ export type ProcessKey = (typeof processKeys)[number]
 
 export const contactEmail = 'contato@alexislopes.com.br'
 
-export const formspreeEndpoint = 'https://formspree.io/f/mdajngbj'
-
 export const socials: SocialLink[] = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alexislopesoficial/' },
   { label: 'GitHub', href: 'https://github.com/alexisdrops' },

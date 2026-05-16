@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { formspreeEndpoint } from '../data/config'
 
 const { t } = useI18n()
+
+const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT
 
 const name = ref('')
 const email = ref('')
