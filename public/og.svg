@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0A0A0A"/>
+  <rect width="1200" height="8" fill="#FE2C55"/>
+
+  <text x="80" y="170" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="22" font-weight="600" fill="#FE2C55" letter-spacing="2.5">SENIOR FRONT-END ENGINEER</text>
+
+  <text x="80" y="350" font-family="'DM Sans', system-ui, sans-serif" font-size="140" font-weight="700" fill="#FAFAF8" letter-spacing="-5">Alexis Lopes<tspan fill="#FE2C55">.</tspan></text>
+
+  <text x="80" y="450" font-family="'DM Sans', system-ui, sans-serif" font-size="42" font-weight="500" fill="#FAFAF8">Front-end Vue sem surpresa ruim.</text>
+
+  <text x="80" y="560" font-family="'JetBrains Mono', ui-monospace, monospace" font-size="18" font-weight="500" fill="#A3A3A3" letter-spacing="1.5">VUE.JS  ·  NUXT  ·  TYPESCRIPT  ·  VITE</text>
+</svg>
