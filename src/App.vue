@@ -8,7 +8,7 @@ import ContactSection from './components/sections/ContactSection.vue'
 </script>
 
 <template>
-  <div class="top-bar" />
+  <div class="h-[3px] w-full bg-brand" />
   <TheNav />
   <main>
     <HeroSection />
@@ -18,11 +18,3 @@ import ContactSection from './components/sections/ContactSection.vue'
   </main>
   <TheFooter />
 </template>
-
-<style scoped>
-.top-bar {
-  height: 3px;
-  background-color: var(--color-brand);
-  width: 100%;
-}
-</style>
