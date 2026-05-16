@@ -1,0 +1,142 @@
+<script setup lang="ts">
+import { ref } from 'vue'
+import { contact } from '../data/content'
+
+const f = contact.form
+
+const name = ref('')
+const email = ref('')
+const message = ref('')
+const gotcha = ref('') // honeypot — bots fill, humans don't see
+
+type Status = 'idle' | 'loading' | 'success' | 'error'
+const status = ref<Status>('idle')
+
+const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined
+
+async function submit() {
+  if (status.value === 'loading') return
+
+  if (gotcha.value) {
+    // bot filled the honeypot — silently succeed
+    status.value = 'success'
+    return
+  }
+
+  if (!endpoint) {
+    console.warn('VITE_FORMSPREE_ENDPOINT is not set — form submission disabled.')
+    status.value = 'error'
+    return
+  }
+
+  status.value = 'loading'
+
+  try {
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name.value,
+        email: email.value,
+        message: message.value,
+        _gotcha: gotcha.value,
+      }),
+    })
+
+    if (!res.ok) throw new Error(`Formspree responded with ${res.status}`)
+
+    status.value = 'success'
+    name.value = ''
+    email.value = ''
+    message.value = ''
+  } catch (err) {
+    console.error(err)
+    status.value = 'error'
+  }
+}
+</script>
+
+<template>
+  <form
+    v-if="status !== 'success'"
+    class="mx-auto flex max-w-150 flex-col gap-5 text-left"
+    @submit.prevent="submit"
+  >
+    <label class="flex flex-col gap-2">
+      <span class="text-xs font-medium uppercase tracking-caps text-text-muted">
+        {{ f.nameLabel }}
+      </span>
+      <input
+        v-model="name"
+        type="text"
+        required
+        autocomplete="name"
+        :placeholder="f.namePlaceholder"
+        class="rounded-md border border-border bg-surface px-4 py-3 text-text placeholder:text-text-subtle focus:border-brand focus:outline-none"
+      />
+    </label>
+
+    <label class="flex flex-col gap-2">
+      <span class="text-xs font-medium uppercase tracking-caps text-text-muted">
+        {{ f.emailLabel }}
+      </span>
+      <input
+        v-model="email"
+        type="email"
+        required
+        autocomplete="email"
+        :placeholder="f.emailPlaceholder"
+        class="rounded-md border border-border bg-surface px-4 py-3 text-text placeholder:text-text-subtle focus:border-brand focus:outline-none"
+      />
+    </label>
+
+    <label class="flex flex-col gap-2">
+      <span class="text-xs font-medium uppercase tracking-caps text-text-muted">
+        {{ f.messageLabel }}
+      </span>
+      <textarea
+        v-model="message"
+        required
+        rows="5"
+        :placeholder="f.messagePlaceholder"
+        class="resize-y rounded-md border border-border bg-surface px-4 py-3 leading-body text-text placeholder:text-text-subtle focus:border-brand focus:outline-none"
+      />
+    </label>
+
+    <!-- honeypot: hidden from humans, bots fill it -->
+    <input
+      v-model="gotcha"
+      type="text"
+      name="_gotcha"
+      tabindex="-1"
+      autocomplete="off"
+      class="hidden"
+      aria-hidden="true"
+    />
+
+    <button
+      type="submit"
+      :disabled="status === 'loading'"
+      class="btn-brand justify-center disabled:opacity-60"
+    >
+      {{ status === 'loading' ? f.submitLoading : f.submitIdle }}
+    </button>
+
+    <p
+      v-if="status === 'error'"
+      class="text-sm text-brand"
+      role="alert"
+    >
+      <strong>{{ f.errorTitle }}</strong> {{ f.errorBody }}
+    </p>
+  </form>
+
+  <div v-else class="mx-auto max-w-150 text-left" role="status">
+    <p class="mb-2 text-2xl font-bold tracking-tight text-text">
+      {{ f.successTitle }}
+    </p>
+    <p class="leading-body text-text-muted">
+      {{ f.successBody }}
+    </p>
+  </div>
+</template>

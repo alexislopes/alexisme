@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { contact } from '../../data/content'
+import ContactForm from '../ContactForm.vue'
 </script>
 
 <template>
@@ -22,14 +23,21 @@ import { contact } from '../../data/content'
         {{ contact.sub }}
       </p>
 
-      <a
-        :href="`mailto:${contact.email}`"
-        class="mb-8 inline-block text-lg font-semibold text-brand transition-colors duration-fast hover:text-red-300"
-      >
-        {{ contact.email }}
-      </a>
+      <ContactForm />
 
-      <div class="flex flex-wrap justify-center gap-5">
+      <div class="mx-auto mt-12 flex max-w-150 flex-col items-center gap-3 border-t border-border pt-8">
+        <p class="text-sm text-text-subtle">
+          {{ contact.form.fallbackHint }}
+        </p>
+        <a
+          :href="`mailto:${contact.email}`"
+          class="text-base font-semibold text-brand transition-colors duration-fast hover:text-red-300"
+        >
+          {{ contact.email }}
+        </a>
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-5">
         <a
           v-for="social in contact.socials"
           :key="social.href"
