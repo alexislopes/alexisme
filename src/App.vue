@@ -8,7 +8,7 @@ import ContactSection from './components/sections/ContactSection.vue'
 </script>
 
 <template>
-  <div class="h-[3px] w-full bg-brand" />
+  <div class="h-0.75 w-full bg-brand" />
   <TheNav />
   <main>
     <HeroSection />
