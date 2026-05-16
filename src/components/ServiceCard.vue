@@ -5,7 +5,7 @@ interface Props {
   number: string
   title: string
   description: string
-  tags: string[]
+  tags?: string[]
 }
 
 defineProps<Props>()
@@ -23,11 +23,11 @@ defineProps<Props>()
       {{ title }}
     </h3>
 
-    <p class="mb-6 text-sm leading-body text-text-muted">
+    <p class="text-sm leading-body text-text-muted">
       {{ description }}
     </p>
 
-    <div class="flex flex-wrap gap-2">
+    <div v-if="tags?.length" class="mt-6 flex flex-wrap gap-2">
       <StackTag v-for="tag in tags" :key="tag" variant="cobalt">{{ tag }}</StackTag>
     </div>
   </article>

@@ -7,7 +7,7 @@ export interface Service {
   number: string
   title: string
   description: string
-  tags: string[]
+  tags?: string[]
 }
 
 export interface SocialLink {
@@ -15,16 +15,9 @@ export interface SocialLink {
   href: string
 }
 
-export interface CaseItem {
-  number: string
-  title: string
-  description: string
-}
-
 export const nav = {
   links: [
     { label: 'Sobre', href: '#sobre' },
-    { label: 'Cases', href: '#cases' },
     { label: 'Serviços', href: '#servicos' },
     { label: 'Contato', href: '#contato' },
   ] as NavLink[],
@@ -47,55 +40,51 @@ export const about = {
   titleHighlight: 'Construo sistemas.',
   paragraphs: [
     'Engenheiro Front-end Sênior com foco em **Vue.js**. Trabalho em arquitetura de interfaces e design de componentes que crescem sem virar legado.',
-    'Últimos anos construindo front-end em **produtos B2B exigentes**. O que entrego é avaliado por quem mantém depois, não só pelo PR aceito hoje.',
+    'Últimos anos construindo front-end em produtos B2B exigentes — uma **agtech de monitoramento florestal** e uma **plataforma de fidelidade** com integrações pesadas. O que entrego é avaliado por quem mantém depois, não só pelo PR aceito hoje.',
     'Disponível para projetos pontuais, alocação como sênior em time existente ou consultoria técnica.',
   ],
 }
 
-export const cases = {
-  label: 'CASES',
-  title: 'Onde apliquei isso.',
-  items: [
-    {
-      number: '01 / AGTECH B2B',
-      title: 'Monitoramento florestal',
-      description:
-        'Arquitetura Vue e design system para dashboards de telemetria de sensores em tempo real.',
-    },
-    {
-      number: '02 / LOYALTY SAAS B2B',
-      title: 'Plataforma de fidelidade',
-      description:
-        'Front-end white-label com integrações pesadas e múltiplos clientes B2B.',
-    },
-  ] as CaseItem[],
-}
-
 export const services = {
   label: 'SERVIÇOS',
-  title: 'O que eu entrego',
-  sub: 'Três formas de me contratar — escolha pela situação, não pelo cargo.',
+  title: 'O que eu faço',
+  sub: 'Cobro por escopo, não por hora. Conversamos antes de qualquer estimativa.',
   items: [
     {
-      number: '01 / ARQUITETURA',
-      title: 'Vue.js Architecture',
+      number: '01',
+      title: 'Aplicativos Vue do zero',
       description:
-        'Pra quando o front cresceu rápido, ninguém entende mais o código e cada feature nova quebra duas antigas. Reorganizo a base sem precisar reescrever tudo.',
-      tags: ['vue 3', 'nuxt', 'typescript', 'composables'],
+        'Da definição de arquitetura ao deploy. Pra quando você precisa começar bem, não rápido.',
     },
     {
-      number: '02 / COMPONENTES',
-      title: 'Component Systems',
+      number: '02',
+      title: 'Implementação de features',
       description:
-        'Pra quando seu time recria o mesmo botão em três telas com três comportamentos diferentes. Monto o sistema de componentes e a régua de uso — acessibilidade e DX no centro.',
-      tags: ['storybook', 'headless', 'a11y', 'tokens'],
+        'Em time existente ou como solo dev — Vue 3, Nuxt, TypeScript, integração com APIs e cobertura de testes.',
     },
     {
-      number: '03 / CONSULTORIA',
-      title: 'Freelance & Tech Review',
+      number: '03',
+      title: 'Migração de projeto legado',
       description:
-        'Pra quando você precisa de um sênior por algumas semanas, não de uma contratação. Entro como especialista no time, faço review estratégico ou toco a entrega ponta a ponta.',
-      tags: ['code review', 'mvp', 'refactor', 'mentoria'],
+        'Vue 2 → Vue 3, Options → Composition, Webpack → Vite. Plano por incremento, não big bang.',
+    },
+    {
+      number: '04',
+      title: 'Correção de bugs complexos',
+      description:
+        'Aqueles que ninguém do time conseguiu reproduzir. Entro por resolução, não por hora.',
+    },
+    {
+      number: '05',
+      title: 'Refactor e arquitetura',
+      description:
+        'Reorganização de base front-end sem reescrever tudo. Pra quando cada feature nova quebra duas antigas.',
+    },
+    {
+      number: '06',
+      title: 'Code review e consultoria',
+      description:
+        'Review estratégico, decisões de stack, modelagem de estado e planning de refactor.',
     },
   ] as Service[],
 }
