@@ -23,6 +23,12 @@ async function submit() {
     return
   }
 
+  if (!formspreeEndpoint) {
+    console.error('VITE_FORMSPREE_ENDPOINT is not set — form cannot submit.')
+    status.value = 'error'
+    return
+  }
+
   status.value = 'loading'
 
   try {
