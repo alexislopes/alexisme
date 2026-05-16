@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { formspreeEndpoint } from '../data/config'
 
 const { t } = useI18n()
 
@@ -12,8 +13,6 @@ const gotcha = ref('') // honeypot — bots fill, humans don't see
 type Status = 'idle' | 'loading' | 'success' | 'error'
 const status = ref<Status>('idle')
 
-const endpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT as string | undefined
-
 async function submit() {
   if (status.value === 'loading') return
 
@@ -23,16 +22,10 @@ async function submit() {
     return
   }
 
-  if (!endpoint) {
-    console.warn('VITE_FORMSPREE_ENDPOINT is not set — form submission disabled.')
-    status.value = 'error'
-    return
-  }
-
   status.value = 'loading'
 
   try {
-    const res = await fetch(endpoint, {
+    const res = await fetch(formspreeEndpoint, {
       method: 'POST',
       headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({
