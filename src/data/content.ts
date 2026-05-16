@@ -15,10 +15,17 @@ export interface SocialLink {
   href: string
 }
 
+export interface ProcessStep {
+  number: string
+  title: string
+  description: string
+}
+
 export const nav = {
   links: [
     { label: 'Sobre', href: '#sobre' },
     { label: 'Serviços', href: '#servicos' },
+    { label: 'Processo', href: '#processo' },
     { label: 'Contato', href: '#contato' },
   ] as NavLink[],
   cta: { label: 'Trabalhar juntos →', href: '#contato' } as NavLink,
@@ -87,6 +94,37 @@ export const services = {
         'Review estratégico, decisões de stack, modelagem de estado e planning de refactor.',
     },
   ] as Service[],
+}
+
+export const process = {
+  label: 'PROCESSO',
+  title: 'Do email à entrega.',
+  steps: [
+    {
+      number: '01',
+      title: 'Conversa inicial',
+      description:
+        'Você manda contexto, conversamos por 30 minutos. Se eu não for a pessoa certa pra esse problema, te falo na hora.',
+    },
+    {
+      number: '02',
+      title: 'Proposta detalhada',
+      description:
+        'Envio proposta com escopo, prazo, premissas e modelo de cobrança. Tudo na mesa antes de começar.',
+    },
+    {
+      number: '03',
+      title: 'Execução transparente',
+      description:
+        'Updates no canal combinado, code review aberto, sem caixa-preta. Você vê o que estou fazendo e por quê.',
+    },
+    {
+      number: '04',
+      title: 'Handover',
+      description:
+        'Documentação e período de suporte combinado em proposta. Você não fica órfão depois do deploy.',
+    },
+  ] as ProcessStep[],
 }
 
 export const contact = {
