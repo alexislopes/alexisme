@@ -5,16 +5,30 @@ import StackTag from '../base/StackTag.vue'
 </script>
 
 <template>
-  <section id="top" class="hero">
-    <div class="container">
-      <p class="label">{{ hero.label }}</p>
-      <h1 class="name">
-        {{ hero.firstName }}<br />
-        <em>{{ hero.lastName }}</em>
-      </h1>
-      <p class="tagline">{{ hero.tagline }}</p>
+  <section
+    id="top"
+    class="border-b border-border px-8 pt-hero pb-section"
+  >
+    <div class="mx-auto max-w-275">
+      <p
+        class="mb-6 font-mono text-xs font-semibold uppercase tracking-wide text-brand"
+      >
+        {{ hero.label }}
+      </p>
 
-      <div class="actions">
+      <h1
+        class="mb-6 whitespace-nowrap text-[clamp(2.25rem,8vw,5.375rem)] font-bold leading-display tracking-[-0.04em]"
+      >
+        {{ hero.firstName }} <em class="not-italic text-brand">{{ hero.lastName }}</em>
+      </h1>
+
+      <p
+        class="mb-10 text-[clamp(1.25rem,2.2vw,1.625rem)] font-medium leading-[1.3] tracking-[-0.01em] text-text"
+      >
+        {{ hero.tagline }}
+      </p>
+
+      <div class="mb-16 flex flex-wrap items-center gap-4">
         <BaseButton :href="hero.primaryCta.href" variant="primary">
           {{ hero.primaryCta.label }}
         </BaseButton>
@@ -23,75 +37,14 @@ import StackTag from '../base/StackTag.vue'
         </BaseButton>
       </div>
 
-      <div class="stack">
-        <span class="stack-label">STACK</span>
+      <div class="flex flex-wrap items-center gap-3">
+        <span
+          class="mr-2 font-mono text-xs tracking-[0.06em] text-text-subtle"
+        >
+          STACK
+        </span>
         <StackTag v-for="item in hero.stack" :key="item" variant="cyan">{{ item }}</StackTag>
       </div>
     </div>
   </section>
 </template>
-
-<style scoped>
-.hero {
-  padding: 6.25rem 2rem 5rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: var(--tracking-wide);
-  color: var(--color-brand);
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-}
-
-.name {
-  font-size: clamp(3rem, 7vw, 5.375rem);
-  font-weight: 700;
-  line-height: var(--leading-display);
-  letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
-}
-
-.name em {
-  font-style: normal;
-  color: var(--color-brand);
-}
-
-.tagline {
-  font-size: 1.125rem;
-  color: var(--color-text-muted);
-  max-width: 35rem;
-  line-height: var(--leading-body);
-  margin-bottom: 2.5rem;
-}
-
-.actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  margin-bottom: 4rem;
-  flex-wrap: wrap;
-}
-
-.stack {
-  display: flex;
-  gap: 0.75rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.stack-label {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-text-subtle);
-  letter-spacing: 0.06em;
-  margin-right: 0.5rem;
-}
-</style>

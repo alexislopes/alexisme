@@ -2,7 +2,7 @@
  * ────────────────────────────────────────────────────────────
  *   Alexis Lopes — Design System · Tailwind CSS v4
  *   Paleta: Red #FE2C55 · Cyan #00B0F8 · Cobalt #3348D4
- *   Tipografia: Elms Sans + JetBrains Mono
+ *   Tipografia: DM Sans + JetBrains Mono
  * ────────────────────────────────────────────────────────────
  */
 
@@ -14,7 +14,7 @@
 @theme {
 
   /* ── FONTS ───────────────────────────────────────────── */
-  --font-sans: 'Elms Sans', 'DM Sans', system-ui, -apple-system, sans-serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 
   /* ── NEUTRAL SCALE ───────────────────────────────────── */

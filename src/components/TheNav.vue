@@ -3,13 +3,17 @@ import { nav } from '../data/content'
 </script>
 
 <template>
-  <nav class="nav" aria-label="Navegação principal">
-    <div class="nav-inner">
-      <a href="#top" class="logo" aria-label="Alexis Lopes">
+  <nav
+    class="sticky top-0 z-100 border-b border-border bg-[color-mix(in_srgb,var(--color-bg)_95%,transparent)] px-8 py-5 backdrop-blur-md"
+    aria-label="Navegação principal"
+  >
+    <div class="mx-auto flex max-w-275 items-center justify-between gap-6">
+      <a href="#top" class="inline-flex h-7 shrink-0 items-center text-text" aria-label="Alexis Lopes">
         <svg
           viewBox="0 0 632 492"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          class="h-full w-auto"
           aria-hidden="true"
         >
           <path
@@ -23,84 +27,23 @@ import { nav } from '../data/content'
         </svg>
       </a>
 
-      <ul class="links">
+      <ul class="hidden gap-8 min-[720px]:flex">
         <li v-for="link in nav.links" :key="link.href">
-          <a :href="link.href">{{ link.label }}</a>
+          <a
+            :href="link.href"
+            class="text-sm text-text-muted transition-colors duration-fast hover:text-text"
+          >
+            {{ link.label }}
+          </a>
         </li>
       </ul>
 
-      <a :href="nav.cta.href" class="cta">{{ nav.cta.label }}</a>
+      <a
+        :href="nav.cta.href"
+        class="rounded-md bg-brand px-5 py-2 text-[0.8125rem] font-semibold tracking-[0.02em] text-white transition-colors duration-base hover:bg-brand-hover"
+      >
+        {{ nav.cta.label }}
+      </a>
     </div>
   </nav>
 </template>
-
-<style scoped>
-.nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid var(--color-border);
-  padding: 1.25rem 2rem;
-  background-color: color-mix(in srgb, var(--color-bg) 95%, transparent);
-  backdrop-filter: blur(8px);
-}
-
-.nav-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-}
-
-.logo {
-  display: inline-flex;
-  align-items: center;
-  height: 28px;
-  color: var(--color-text);
-  flex-shrink: 0;
-}
-
-.logo svg {
-  height: 100%;
-  width: auto;
-}
-
-.links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-  margin: 0;
-  padding: 0;
-}
-
-.links a {
-  color: var(--color-text-muted);
-  font-size: 0.875rem;
-  transition: color var(--duration-fast) ease;
-}
-
-.links a:hover {
-  color: var(--color-text);
-}
-
-.cta {
-  background-color: var(--color-brand);
-  color: #fff;
-  font-size: 0.8125rem;
-  font-weight: 600;
-  padding: 0.5rem 1.25rem;
-  border-radius: var(--radius-md);
-  letter-spacing: 0.02em;
-  transition: background-color var(--duration-base) ease;
-}
-
-.cta:hover {
-  background-color: var(--color-brand-hover);
-}
-
-@media (max-width: 720px) {
-  .links { display: none; }
-}
-</style>

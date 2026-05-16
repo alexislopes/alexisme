@@ -4,13 +4,28 @@ import ServiceCard from '../ServiceCard.vue'
 </script>
 
 <template>
-  <section id="servicos" class="section">
-    <div class="container">
-      <p class="section-label">{{ services.label }}</p>
-      <h2 class="title">{{ services.title }}</h2>
-      <p class="sub">{{ services.sub }}</p>
+  <section
+    id="servicos"
+    class="border-b border-border px-8 py-section"
+  >
+    <div class="mx-auto max-w-275">
+      <p
+        class="mb-3 font-mono text-[0.6875rem] font-semibold uppercase tracking-caps text-brand"
+      >
+        {{ services.label }}
+      </p>
 
-      <div class="grid">
+      <h2
+        class="mb-4 text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-heading tracking-[-0.025em]"
+      >
+        {{ services.title }}
+      </h2>
+
+      <p class="max-w-130 leading-body text-text-muted">
+        {{ services.sub }}
+      </p>
+
+      <div class="mt-12 grid grid-cols-1 gap-6 min-[900px]:grid-cols-3">
         <ServiceCard
           v-for="item in services.items"
           :key="item.title"
@@ -23,40 +38,3 @@ import ServiceCard from '../ServiceCard.vue'
     </div>
   </section>
 </template>
-
-<style scoped>
-.section {
-  padding: 5rem 2rem;
-  border-bottom: 1px solid var(--color-border);
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.title {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  margin-bottom: 1rem;
-}
-
-.sub {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  max-width: 32.5rem;
-  line-height: var(--leading-body);
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-@media (max-width: 900px) {
-  .grid { grid-template-columns: 1fr; }
-}
-</style>

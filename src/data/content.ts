@@ -28,10 +28,9 @@ export const hero = {
   label: 'SENIOR FRONT-END ENGINEER',
   firstName: 'Alexis',
   lastName: 'Lopes.',
-  tagline:
-    'Arquiteto de interfaces Vue.js que escalam — do componente à estrutura completa do produto.',
-  primaryCta: { label: 'Vamos conversar', href: '#contato' } as NavLink,
-  ghostCta: { label: 'Ver serviços', href: '#servicos' } as NavLink,
+  tagline: 'Front-end Vue sem surpresa ruim.',
+  primaryCta: { label: 'Falar sobre meu projeto', href: '#contato' } as NavLink,
+  ghostCta: { label: 'Ver como trabalho', href: '#servicos' } as NavLink,
   stack: ['vue.js', 'nuxt', 'typescript', 'pinia', 'vite', 'vitest'],
 }
 
@@ -40,36 +39,36 @@ export const about = {
   title: 'Não construo páginas.',
   titleHighlight: 'Construo sistemas.',
   paragraphs: [
-    'Sou Engenheiro Front-end Sênior com foco em **Vue.js** — especializado em arquitetura de interfaces e design de sistemas de componentes que crescem sem virar legado.',
-    'Trabalho na interseção entre **engenharia e produto**: entrego código que funciona, que outros devs conseguem manter, e que faz sentido para o negócio.',
-    'Disponível para projetos **freelance**, consultoria técnica e colaborações estratégicas.',
+    'Engenheiro Front-end Sênior com foco em **Vue.js**. Trabalho em arquitetura de interfaces e design de componentes que crescem sem virar legado.',
+    'Últimos anos construindo front-end em produtos B2B exigentes — uma **agtech de monitoramento florestal** e uma **plataforma de fidelidade** com integrações pesadas. O que entrego é avaliado por quem mantém depois, não só pelo PR aceito hoje.',
+    'Disponível para projetos pontuais, alocação como sênior em time existente ou consultoria técnica.',
   ],
 }
 
 export const services = {
   label: 'SERVIÇOS',
   title: 'O que eu entrego',
-  sub: 'Trabalho como especialista técnico ou parceiro de desenvolvimento — do escopo ao deploy.',
+  sub: 'Três formas de me contratar — escolha pela situação, não pelo cargo.',
   items: [
     {
       number: '01 / ARQUITETURA',
       title: 'Vue.js Architecture',
       description:
-        'Design de estruturas front-end escaláveis: modularização, separação de concerns e patterns que sobrevivem ao crescimento do produto.',
+        'Pra quando o front cresceu rápido, ninguém entende mais o código e cada feature nova quebra duas antigas. Reorganizo a base sem precisar reescrever tudo.',
       tags: ['vue 3', 'nuxt', 'typescript', 'composables'],
     },
     {
       number: '02 / COMPONENTES',
       title: 'Component Systems',
       description:
-        'Construção de design systems e bibliotecas de componentes reutilizáveis — API consistente, acessibilidade e DX no centro.',
+        'Pra quando seu time recria o mesmo botão em três telas com três comportamentos diferentes. Monto o sistema de componentes e a régua de uso — acessibilidade e DX no centro.',
       tags: ['storybook', 'headless', 'a11y', 'tokens'],
     },
     {
       number: '03 / CONSULTORIA',
       title: 'Freelance & Tech Review',
       description:
-        'Atuo como especialista técnico no seu time ou entrego projetos completos — do MVP ao refactor estratégico.',
+        'Pra quando você precisa de um sênior por algumas semanas, não de uma contratação. Entro como especialista no time, faço review estratégico ou toco a entrega ponta a ponta.',
       tags: ['code review', 'mvp', 'refactor', 'mentoria'],
     },
   ] as Service[],
@@ -77,10 +76,10 @@ export const services = {
 
 export const contact = {
   label: 'CONTATO',
-  title: 'Tem um projeto',
-  titleSecondLine: 'em mente?',
-  sub: 'Manda uma mensagem — respondo em até 24h sobre projetos freelance, consultoria ou colaborações.',
-  email: 'alexisdrops@gmail.com',
+  title: 'Vamos conversar',
+  titleSecondLine: 'sobre o seu projeto.',
+  sub: 'Resposta em até 24h. Me conta o contexto — em uma frase ou em três parágrafos, tanto faz.',
+  email: 'contato@alexislopes.com.br',
   socials: [
     { label: 'LinkedIn', href: 'https://www.linkedin.com/in/alexislopesoficial/' },
     { label: 'GitHub', href: 'https://github.com/alexisdrops' },
@@ -89,5 +88,5 @@ export const contact = {
 
 export const footer = {
   copyright: '© 2026 Alexis Lopes. Todos os direitos reservados.',
-  note: 'vue.js · typescript · made with precision',
+  note: 'vue.js · typescript · sistemas que envelhecem bem',
 }

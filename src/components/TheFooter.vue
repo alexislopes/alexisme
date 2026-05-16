@@ -3,38 +3,10 @@ import { footer } from '../data/content'
 </script>
 
 <template>
-  <footer class="footer">
-    <div class="inner">
-      <p class="copy">{{ footer.copyright }}</p>
-      <p class="note">{{ footer.note }}</p>
+  <footer class="border-t border-border px-8 py-7">
+    <div class="mx-auto flex max-w-275 flex-wrap items-center justify-between gap-6">
+      <p class="text-[0.8125rem] text-text-subtle">{{ footer.copyright }}</p>
+      <p class="font-mono text-xs text-text-subtle">{{ footer.note }}</p>
     </div>
   </footer>
 </template>
-
-<style scoped>
-.footer {
-  border-top: 1px solid var(--color-border);
-  padding: 1.75rem 2rem;
-}
-
-.inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.copy {
-  font-size: 0.8125rem;
-  color: var(--color-text-subtle);
-}
-
-.note {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--color-text-subtle);
-}
-</style>

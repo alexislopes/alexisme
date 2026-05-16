@@ -3,25 +3,40 @@ import { contact } from '../../data/content'
 </script>
 
 <template>
-  <section id="contato" class="section">
-    <div class="container">
-      <p class="section-label">{{ contact.label }}</p>
-      <h2 class="title">
+  <section id="contato" class="px-8 py-hero text-center">
+    <div class="mx-auto max-w-275">
+      <p
+        class="mb-3 font-mono text-[0.6875rem] font-semibold uppercase tracking-caps text-brand"
+      >
+        {{ contact.label }}
+      </p>
+
+      <h2
+        class="mb-5 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight"
+      >
         {{ contact.title }}<br />
         {{ contact.titleSecondLine }}
       </h2>
-      <p class="sub">{{ contact.sub }}</p>
 
-      <a :href="`mailto:${contact.email}`" class="email">{{ contact.email }}</a>
+      <p class="mx-auto mb-10 max-w-120 leading-body text-text-muted">
+        {{ contact.sub }}
+      </p>
 
-      <div class="socials">
+      <a
+        :href="`mailto:${contact.email}`"
+        class="mb-8 inline-block text-lg font-semibold text-brand transition-colors duration-fast hover:text-red-300"
+      >
+        {{ contact.email }}
+      </a>
+
+      <div class="flex flex-wrap justify-center gap-5">
         <a
           v-for="social in contact.socials"
           :key="social.href"
           :href="social.href"
           target="_blank"
           rel="noopener noreferrer"
-          class="social"
+          class="rounded-md border border-border px-5 py-2 text-[0.8125rem] text-text-muted transition-colors duration-fast hover:border-neutral-40 hover:text-text"
         >
           {{ social.label }}
         </a>
@@ -29,63 +44,3 @@ import { contact } from '../../data/content'
     </div>
   </section>
 </template>
-
-<style scoped>
-.section {
-  padding: 6.25rem 2rem;
-  text-align: center;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 1.25rem;
-}
-
-.sub {
-  font-size: 1rem;
-  color: var(--color-text-muted);
-  max-width: 30rem;
-  margin: 0 auto 2.5rem;
-  line-height: var(--leading-body);
-}
-
-.email {
-  display: inline-block;
-  font-size: 1.125rem;
-  color: var(--color-brand);
-  font-weight: 600;
-  margin-bottom: 2rem;
-  transition: color var(--duration-fast) ease;
-}
-
-.email:hover { color: var(--color-red-300); }
-
-.socials {
-  display: flex;
-  gap: 1.25rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.social {
-  font-size: 0.8125rem;
-  color: var(--color-text-muted);
-  border: 1px solid var(--color-border);
-  padding: 0.5rem 1.25rem;
-  border-radius: var(--radius-md);
-  transition: color var(--duration-fast) ease, border-color var(--duration-fast) ease;
-}
-
-.social:hover {
-  color: var(--color-text);
-  border-color: var(--color-neutral-40);
-}
-</style>
