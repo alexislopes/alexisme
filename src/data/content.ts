@@ -15,9 +15,16 @@ export interface SocialLink {
   href: string
 }
 
+export interface CaseItem {
+  number: string
+  title: string
+  description: string
+}
+
 export const nav = {
   links: [
     { label: 'Sobre', href: '#sobre' },
+    { label: 'Cases', href: '#cases' },
     { label: 'Serviços', href: '#servicos' },
     { label: 'Contato', href: '#contato' },
   ] as NavLink[],
@@ -40,9 +47,28 @@ export const about = {
   titleHighlight: 'Construo sistemas.',
   paragraphs: [
     'Engenheiro Front-end Sênior com foco em **Vue.js**. Trabalho em arquitetura de interfaces e design de componentes que crescem sem virar legado.',
-    'Últimos anos construindo front-end em produtos B2B exigentes — uma **agtech de monitoramento florestal** e uma **plataforma de fidelidade** com integrações pesadas. O que entrego é avaliado por quem mantém depois, não só pelo PR aceito hoje.',
+    'Últimos anos construindo front-end em **produtos B2B exigentes**. O que entrego é avaliado por quem mantém depois, não só pelo PR aceito hoje.',
     'Disponível para projetos pontuais, alocação como sênior em time existente ou consultoria técnica.',
   ],
+}
+
+export const cases = {
+  label: 'CASES',
+  title: 'Onde apliquei isso.',
+  items: [
+    {
+      number: '01 / AGTECH B2B',
+      title: 'Monitoramento florestal',
+      description:
+        'Arquitetura Vue e design system para dashboards de telemetria de sensores em tempo real.',
+    },
+    {
+      number: '02 / LOYALTY SAAS B2B',
+      title: 'Plataforma de fidelidade',
+      description:
+        'Front-end white-label com integrações pesadas e múltiplos clientes B2B.',
+    },
+  ] as CaseItem[],
 }
 
 export const services = {

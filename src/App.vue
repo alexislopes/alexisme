@@ -3,6 +3,7 @@ import TheNav from './components/TheNav.vue'
 import TheFooter from './components/TheFooter.vue'
 import HeroSection from './components/sections/HeroSection.vue'
 import AboutSection from './components/sections/AboutSection.vue'
+import CasesSection from './components/sections/CasesSection.vue'
 import ServicesSection from './components/sections/ServicesSection.vue'
 import ContactSection from './components/sections/ContactSection.vue'
 </script>
@@ -13,6 +14,7 @@ import ContactSection from './components/sections/ContactSection.vue'
   <main>
     <HeroSection />
     <AboutSection />
+    <CasesSection />
     <ServicesSection />
     <ContactSection />
   </main>
