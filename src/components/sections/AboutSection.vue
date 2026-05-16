@@ -38,15 +38,15 @@ function renderMarkdown(text: string): string {
         </div>
 
         <CodeBlock>
-<span class="c-gray">// Alexis.vue</span>
-<span class="c-red">&lt;script setup&gt;</span>
-  <span class="c-white">const</span> role = <span class="c-green">'Senior Vue.js Engineer'</span>
-  <span class="c-white">const</span> focus = [
-    <span class="c-green">'Architecture'</span>,
-    <span class="c-green">'Component Systems'</span>,
-    <span class="c-green">'Scalable Interfaces'</span>
+<span class="text-text-subtle">// Alexis.vue</span>
+<span class="text-brand">&lt;script setup&gt;</span>
+  <span class="text-text">const</span> role = <span class="text-[#3FB950]">'Senior Vue.js Engineer'</span>
+  <span class="text-text">const</span> focus = [
+    <span class="text-[#3FB950]">'Architecture'</span>,
+    <span class="text-[#3FB950]">'Component Systems'</span>,
+    <span class="text-[#3FB950]">'Scalable Interfaces'</span>
   ]
-<span class="c-red">&lt;/script&gt;</span>
+<span class="text-brand">&lt;/script&gt;</span>
         </CodeBlock>
       </div>
     </div>
