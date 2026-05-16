@@ -40,11 +40,11 @@ function renderMarkdown(text: string): string {
         <CodeBlock>
 <span class="text-text-subtle">// Alexis.vue</span>
 <span class="text-brand">&lt;script setup&gt;</span>
-  <span class="text-text">const</span> role = <span class="text-[#3FB950]">'Senior Vue.js Engineer'</span>
+  <span class="text-text">const</span> role = <span class="text-syntax-string">'Senior Vue.js Engineer'</span>
   <span class="text-text">const</span> focus = [
-    <span class="text-[#3FB950]">'Architecture'</span>,
-    <span class="text-[#3FB950]">'Component Systems'</span>,
-    <span class="text-[#3FB950]">'Scalable Interfaces'</span>
+    <span class="text-syntax-string">'Architecture'</span>,
+    <span class="text-syntax-string">'Component Systems'</span>,
+    <span class="text-syntax-string">'Scalable Interfaces'</span>
   ]
 <span class="text-brand">&lt;/script&gt;</span>
         </CodeBlock>
