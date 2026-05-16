@@ -113,7 +113,7 @@ export default {
       nameLabel: 'Your name',
       namePlaceholder: 'How you prefer to be called',
       emailLabel: 'Your email',
-      emailPlaceholder: 'you@company.com',
+      emailPlaceholder: "you{'@'}company.com",
       messageLabel: 'What should we talk about?',
       messagePlaceholder: 'Project context, timeline, scope… or just a question.',
       submitIdle: 'Send message',
