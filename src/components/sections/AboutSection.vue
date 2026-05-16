@@ -1,6 +1,11 @@
 <script setup lang="ts">
-import { about } from '../../data/content'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import CodeBlock from '../base/CodeBlock.vue'
+
+const { t, tm } = useI18n()
+
+const paragraphs = computed(() => tm('about.paragraphs') as string[])
 
 // Convert **bold** markers in copy to <strong> spans.
 function renderMarkdown(text: string): string {
@@ -17,20 +22,20 @@ function renderMarkdown(text: string): string {
       <p
         class="mb-3 font-mono text-[0.6875rem] font-semibold uppercase tracking-caps text-brand"
       >
-        {{ about.label }}
+        {{ t('about.label') }}
       </p>
 
       <h2
         class="text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-heading tracking-[-0.025em]"
       >
-        {{ about.title }}<br />
-        {{ about.titleHighlight }}
+        {{ t('about.title') }}<br />
+        {{ t('about.titleHighlight') }}
       </h2>
 
       <div class="mt-12 grid grid-cols-1 items-start gap-8 md:grid-cols-2 md:gap-16">
         <div>
           <p
-            v-for="(paragraph, i) in about.paragraphs"
+            v-for="(paragraph, i) in paragraphs"
             :key="i"
             class="mb-5 leading-body text-text-muted"
             v-html="renderMarkdown(paragraph)"

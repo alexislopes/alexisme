@@ -1,11 +1,28 @@
 <script setup lang="ts">
-import { nav } from '../data/content'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { navLinks, navCtaHref } from '../data/config'
+import type { Locale } from '../i18n'
+
+const { t, locale } = useI18n()
+
+const links = computed(() =>
+  navLinks.map((link) => ({
+    label: t(`nav.${link.key}`),
+    href: link.href,
+  })),
+)
+
+function setLocale(next: Locale) {
+  if (locale.value === next) return
+  locale.value = next
+}
 </script>
 
 <template>
   <nav
     class="sticky top-0 z-100 border-b border-border bg-[color-mix(in_srgb,var(--color-bg)_95%,transparent)] px-8 py-5 backdrop-blur-md"
-    aria-label="Navegação principal"
+    :aria-label="t('nav.localeToggleAria')"
   >
     <div class="mx-auto flex max-w-275 items-center justify-between gap-6">
       <a href="#top" class="inline-flex h-7 shrink-0 items-center text-text" aria-label="Alexis Lopes">
@@ -28,7 +45,7 @@ import { nav } from '../data/content'
       </a>
 
       <ul class="hidden gap-8 min-[720px]:flex">
-        <li v-for="link in nav.links" :key="link.href">
+        <li v-for="link in links" :key="link.href">
           <a
             :href="link.href"
             class="text-sm text-text-muted transition-colors duration-fast hover:text-text"
@@ -38,12 +55,39 @@ import { nav } from '../data/content'
         </li>
       </ul>
 
-      <a
-        :href="nav.cta.href"
-        class="rounded-md bg-brand px-5 py-2 text-[0.8125rem] font-semibold tracking-[0.02em] text-white transition-colors duration-base hover:bg-brand-hover"
-      >
-        {{ nav.cta.label }}
-      </a>
+      <div class="flex items-center gap-4">
+        <div
+          class="flex items-center gap-1.5 font-mono text-xs"
+          :aria-label="t('nav.localeToggleAria')"
+        >
+          <button
+            type="button"
+            class="cursor-pointer transition-colors duration-fast"
+            :class="locale === 'pt' ? 'text-text' : 'text-text-subtle hover:text-text-muted'"
+            :aria-pressed="locale === 'pt'"
+            @click="setLocale('pt')"
+          >
+            PT
+          </button>
+          <span class="text-text-subtle">/</span>
+          <button
+            type="button"
+            class="cursor-pointer transition-colors duration-fast"
+            :class="locale === 'en' ? 'text-text' : 'text-text-subtle hover:text-text-muted'"
+            :aria-pressed="locale === 'en'"
+            @click="setLocale('en')"
+          >
+            EN
+          </button>
+        </div>
+
+        <a
+          :href="navCtaHref"
+          class="rounded-md bg-brand px-5 py-2 text-[0.8125rem] font-semibold tracking-[0.02em] text-white transition-colors duration-base hover:bg-brand-hover"
+        >
+          {{ t('nav.cta') }}
+        </a>
+      </div>
     </div>
   </nav>
 </template>

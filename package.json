@@ -10,7 +10,8 @@
     "og:build": "node scripts/generate-og.mjs"
   },
   "dependencies": {
-    "vue": "^3.5.32"
+    "vue": "^3.5.32",
+    "vue-i18n": "^11.4.2"
   },
   "devDependencies": {
     "@expo-google-fonts/dm-sans": "^0.4.2",

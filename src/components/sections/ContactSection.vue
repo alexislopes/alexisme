@@ -1,6 +1,9 @@
 <script setup lang="ts">
-import { contact } from '../../data/content'
+import { useI18n } from 'vue-i18n'
+import { contactEmail, socials } from '../../data/config'
 import ContactForm from '../ContactForm.vue'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -9,37 +12,37 @@ import ContactForm from '../ContactForm.vue'
       <p
         class="mb-3 font-mono text-[0.6875rem] font-semibold uppercase tracking-caps text-brand"
       >
-        {{ contact.label }}
+        {{ t('contact.label') }}
       </p>
 
       <h2
         class="mb-5 text-[clamp(2rem,5vw,3.5rem)] font-bold leading-[1.1] tracking-tight"
       >
-        {{ contact.title }}<br />
-        {{ contact.titleSecondLine }}
+        {{ t('contact.title') }}<br />
+        {{ t('contact.titleSecondLine') }}
       </h2>
 
       <p class="mx-auto mb-10 max-w-120 leading-body text-text-muted">
-        {{ contact.sub }}
+        {{ t('contact.sub') }}
       </p>
 
       <ContactForm />
 
       <div class="mx-auto mt-12 flex max-w-150 flex-col items-center gap-3 border-t border-border pt-8">
         <p class="text-sm text-text-subtle">
-          {{ contact.form.fallbackHint }}
+          {{ t('contact.form.fallbackHint') }}
         </p>
         <a
-          :href="`mailto:${contact.email}`"
+          :href="`mailto:${contactEmail}`"
           class="text-base font-semibold text-brand transition-colors duration-fast hover:text-red-300"
         >
-          {{ contact.email }}
+          {{ contactEmail }}
         </a>
       </div>
 
       <div class="mt-10 flex flex-wrap justify-center gap-5">
         <a
-          v-for="social in contact.socials"
+          v-for="social in socials"
           :key="social.href"
           :href="social.href"
           target="_blank"

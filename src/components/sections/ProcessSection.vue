@@ -1,5 +1,18 @@
 <script setup lang="ts">
-import { process } from '../../data/content'
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { processKeys } from '../../data/config'
+
+const { t } = useI18n()
+
+const steps = computed(() =>
+  processKeys.map((key) => ({
+    key,
+    number: t(`process.steps.${key}.number`),
+    title: t(`process.steps.${key}.title`),
+    description: t(`process.steps.${key}.description`),
+  })),
+)
 </script>
 
 <template>
@@ -11,21 +24,21 @@ import { process } from '../../data/content'
       <p
         class="mb-3 font-mono text-[0.6875rem] font-semibold uppercase tracking-caps text-brand"
       >
-        {{ process.label }}
+        {{ t('process.label') }}
       </p>
 
       <h2
         class="mb-12 text-[clamp(1.75rem,4vw,2.5rem)] font-bold leading-heading tracking-[-0.025em]"
       >
-        {{ process.title }}
+        {{ t('process.title') }}
       </h2>
 
       <div
         class="grid grid-cols-1 gap-10 min-[720px]:grid-cols-2 min-[720px]:gap-12 min-[1024px]:grid-cols-4 min-[1024px]:gap-8"
       >
         <article
-          v-for="step in process.steps"
-          :key="step.number"
+          v-for="step in steps"
+          :key="step.key"
           class="accent-line"
         >
           <p

@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { hero } from '../../data/content'
+import { useI18n } from 'vue-i18n'
+import { heroStack, heroPrimaryCtaHref, heroGhostCtaHref } from '../../data/config'
 import BaseButton from '../base/BaseButton.vue'
 import StackTag from '../base/StackTag.vue'
+
+const { t } = useI18n()
 </script>
 
 <template>
@@ -13,27 +16,27 @@ import StackTag from '../base/StackTag.vue'
       <p
         class="mb-6 font-mono text-xs font-semibold uppercase tracking-wide text-brand"
       >
-        {{ hero.label }}
+        {{ t('hero.label') }}
       </p>
 
       <h1
         class="mb-6 whitespace-nowrap text-[clamp(2.25rem,8vw,5.375rem)] font-bold leading-display tracking-[-0.04em]"
       >
-        {{ hero.firstName }} <em class="not-italic text-brand">{{ hero.lastName }}</em>
+        {{ t('hero.firstName') }} <em class="not-italic text-brand">{{ t('hero.lastName') }}</em>
       </h1>
 
       <p
         class="mb-10 text-[clamp(1.25rem,2.2vw,1.625rem)] font-medium leading-[1.3] tracking-[-0.01em] text-text"
       >
-        {{ hero.tagline }}
+        {{ t('hero.tagline') }}
       </p>
 
       <div class="mb-16 flex flex-wrap items-center gap-4">
-        <BaseButton :href="hero.primaryCta.href" variant="primary">
-          {{ hero.primaryCta.label }}
+        <BaseButton :href="heroPrimaryCtaHref" variant="primary">
+          {{ t('hero.primaryCta') }}
         </BaseButton>
-        <BaseButton :href="hero.ghostCta.href" variant="ghost">
-          {{ hero.ghostCta.label }}
+        <BaseButton :href="heroGhostCtaHref" variant="ghost">
+          {{ t('hero.ghostCta') }}
         </BaseButton>
       </div>
 
@@ -41,9 +44,9 @@ import StackTag from '../base/StackTag.vue'
         <span
           class="mr-2 font-mono text-xs tracking-[0.06em] text-text-subtle"
         >
-          STACK
+          {{ t('hero.stackLabel') }}
         </span>
-        <StackTag v-for="item in hero.stack" :key="item" variant="cyan">{{ item }}</StackTag>
+        <StackTag v-for="item in heroStack" :key="item" variant="cyan">{{ item }}</StackTag>
       </div>
     </div>
   </section>
