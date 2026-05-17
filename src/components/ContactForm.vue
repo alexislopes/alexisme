@@ -4,7 +4,11 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const formspreeEndpoint = import.meta.env.VITE_FORMSPREE_ENDPOINT
+// Endpoint is public (visible in network tab on submit). Inlined so the form
+// keeps working even when Cloudflare Pages fails to expose dashboard env vars
+// to the Vite build. Env var still wins when present, useful for staging.
+const formspreeEndpoint =
+  import.meta.env.VITE_FORMSPREE_ENDPOINT || 'https://formspree.io/f/mdajngbj'
 
 const name = ref('')
 const email = ref('')
@@ -20,12 +24,6 @@ async function submit() {
   if (gotcha.value) {
     // bot filled the honeypot — silently succeed
     status.value = 'success'
-    return
-  }
-
-  if (!formspreeEndpoint) {
-    console.error('VITE_FORMSPREE_ENDPOINT is not set — form cannot submit.')
-    status.value = 'error'
     return
   }
 
